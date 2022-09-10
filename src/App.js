@@ -4,14 +4,13 @@ import { useRef, useState, useEffect } from "react";
 function App() {
   const [index, setIndex] = useState(0);
   const eleList = useRef([]);
-  const goToELement = async () => {
-    console.log(eleList);
-    await eleList.current[index]?.scrollIntoView({ behavior: "smooth" });
+  const goToELement = () => {
+    eleList.current[index]?.scrollIntoView({ behavior: "smooth" });
     eleList.current[index].style.backgroundColor = "#f5f542";
   };
   useEffect(() => {
     eleList.current = eleList.current.slice(0, data.length);
-  }, [data]);
+  }, []);
   return (
     <div className="App">
       <div className="searchContainer">
